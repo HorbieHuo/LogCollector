@@ -1,0 +1,2 @@
+# LogCollector
+collect logs, simple
