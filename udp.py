@@ -1,6 +1,7 @@
 import socket
 
 import setting
+from queue import Q
 
 if __name__ == "__main__":
     address = ('localhost', 11111)  
@@ -29,5 +30,6 @@ def Udp():
         if not data:
             print "client has exist"
             break
+        Q.append(data)
         print "received:", len(data), "from", addr, "type:", type(data)
     s.close()
