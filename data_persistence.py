@@ -4,10 +4,14 @@ import pickle
 from queue import Q
 from persistence_adapter import SAVERS
 
-def Save():
+def Save(*args, **kwargs):
+    event = kwargs.get('event', None)
+    if not event:
+        return
     while True:
         if Q.count <= 0:
-            pass
+            event.clear()
+            event.wait(2)
         datas, count = Q.get()
         if count <= 0:
             continue
