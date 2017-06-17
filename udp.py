@@ -4,15 +4,15 @@ import setting
 from queue import Q
 
 if __name__ == "__main__":
-    address = ('localhost', 11111)  
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  
+    address = ('localhost', 11111)
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.bind(address)
     print "start udp: localhost:11111"
     while True:
-        data, addr = s.recvfrom(2048)
-        if not data:  
-            print "client has exist"  
-            break  
+        data, addr = s.recvfrom(20480)
+        if not data:
+            print "client has exist"
+            break
         print "received:", len(data), "from", addr, "type:", type(data)
     
     s.close()
@@ -22,7 +22,7 @@ def Udp():
     udp
     '''
     address = (setting.UDP_IP, setting.UDP_PORT)
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.bind(address)
     print("start udp: %s:%s" % address)
     while True:
@@ -31,5 +31,5 @@ def Udp():
             print "client has exist"
             break
         Q.append(data)
-        print "received:", len(data), "from", addr, "type:", type(data)
+        print("received data len: %s, from: %s" % (len(data), addr))
     s.close()

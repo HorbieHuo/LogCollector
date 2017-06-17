@@ -24,9 +24,10 @@ def setup_logging(
 
 if __name__ == "__main__":
     setup_logging()
-    logger = logging.getLogger("lifemg")
-    logger.debug("this is a debugmsg!")
-    logger.info("this is a infomsg!")
-    logger.warn("this is a warn msg!")
-    logger.error("this is a error msg!")
-    logger.critical("this is a critical msg!")
+    for i in range(100):
+        logger = logging.getLogger("lifemg")
+        logger.debug("this is a debugmsg!")
+        logger.info("this is a infomsg!")
+        logger.warn("this is a warn msg!")
+        logger.error("this is a error msg!")
+        logger.critical("this is a critical msg!")
