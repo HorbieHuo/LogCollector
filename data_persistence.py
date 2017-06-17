@@ -1,11 +1,6 @@
 
-<<<<<<< HEAD
 import pickle
 import logging
-=======
-import logging
-import pickle
->>>>>>> 0b42f9fbdeadc7dbd2abf468459d5330d8fb8949
 from queue import Q
 from persistence_adapter import SAVERS
 
