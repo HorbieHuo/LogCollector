@@ -17,10 +17,13 @@ if __name__ == "__main__":
     
     s.close()
 
-def Udp():
+def Udp(*args, **kwargs):
     '''
     udp
     '''
+    event = kwargs.get('event', None)
+    if not event:
+        return
     address = (setting.UDP_IP, setting.UDP_PORT)
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.bind(address)
@@ -31,5 +34,7 @@ def Udp():
             print "client has exist"
             break
         Q.append(data)
+        if not event.is_set():
+            event.set()
         print("received data len: %s, from: %s" % (len(data), addr))
     s.close()
