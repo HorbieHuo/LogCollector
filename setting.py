@@ -6,3 +6,5 @@ UDP_PORT = os.environ.get("UDP_PORT", 46739)
 UDP_MAX_BITS_RECV_ONE = os.environ.get("UDP_MAX_BITS_RECV_ONE", 10240)
 
 CACHE_MAX_LOG_COUNT = 1024
+
+LOG_FROMAT_STRING = "%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s"

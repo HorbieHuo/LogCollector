@@ -1,5 +1,7 @@
+from persistence_adapter import common
 
-class __fileAdapter__(object):
+
+class __fileAdapter__(common.LogAdapterObject):
 
     def __init__(self, *args, **kwargs):
         self.__enable__ = False

@@ -1,13 +1,16 @@
 
 import pickle
 import logging
+import setting as CONFIG
 from queue import Q
 from persistence_adapter import SAVERS
+from persistence_adapter import InitAdapter
 
 def Save(*args, **kwargs):
     event = kwargs.get('event', None)
     if not event:
         return
+    InitAdapter(**CONFIG.__dict__)
     while True:
         if Q.count <= 0:
             event.clear()
