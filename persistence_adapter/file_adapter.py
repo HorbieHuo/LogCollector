@@ -11,8 +11,8 @@ class __fileAdapter__(common.LogAdapterObject):
         if not self.__enable__:
             return
         with open(self.__fileName__, 'w+') as f:
-            if len(args) > 0:
-                data = '\n'.join([x.getMessage() for x in args])
+            for r in args:
+                data = self.getFormatMsg(r)
                 f.write(data)
                 f.write('\n')
 
